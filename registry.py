@@ -36,6 +36,19 @@ from generators.qcm_0 import (
     serie_valeur,
 )
 
+# --- Types Thermo (QCM Sophie) ---
+from generators.termo import (
+    systems, variables, constants, gas, transformations,
+    laplace, first_principle, heat_capacity, enthalpy, entropy,
+    conventions, gibbs, energetic_balance,
+)
+
+TERMO_GENERATORS = [
+    systems, variables, constants, gas, transformations,
+    laplace, first_principle, heat_capacity, enthalpy, entropy,
+    conventions, gibbs, energetic_balance,
+]
+
 # --- Liste des générateurs communs ---
 COMMON_GENERATORS = [
     polynome,
@@ -86,6 +99,16 @@ REGISTRY = {
                 "data_file": "data/qcm_0.json",
                 "generators": COMMON_GENERATORS + QCM_0_SPECIFIC,
                 "n_default": 34,
+            },
+        },
+    },
+    "termo": {
+        "sophie": {
+            1: {
+                "label": "QCM 1 (Sophie Carles)",
+                "data_file": "data/termo_qcm1.json",
+                "generators": TERMO_GENERATORS,
+                "n_default": 20,
             },
         },
     },

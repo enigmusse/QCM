@@ -198,6 +198,8 @@ def postprocess_unique(q, rng, p_autre=0.20):
     Conserve la vraie réponse mathématique dans q['reponse_math']."""
     if q["type"] in MULTI_TYPES:
         return q
+    if "Autre chose" not in q["options"]:
+        return q
 
     rep = q["reponse"]
     if isinstance(rep, list):
