@@ -1,5 +1,5 @@
 import random
-from .utils import fmt_poly
+from generators.utils import fmt_poly
 
 AVOID = [
     (2, (-5, 1, 1)),

@@ -1,6 +1,6 @@
 import random
 import sympy as sp
-from .utils import fmt_expr
+from generators.utils import fmt_expr
 
 X = sp.Symbol("x")
 

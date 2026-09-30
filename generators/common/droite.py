@@ -1,6 +1,6 @@
 import random
 import sympy as sp
-from .utils import fmt_line
+from generators.utils import fmt_line
 
 AVOID = [
     (0, 1, -1, 3),
