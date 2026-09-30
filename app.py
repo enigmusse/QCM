@@ -25,6 +25,7 @@ def has_duplicate_options(q):
 
 
 def generate_questions(n, seed=None):
+    from generators.utils import postprocess_unique
     rng = random.Random(seed)
     questions = []
     for _ in range(n):
@@ -32,6 +33,7 @@ def generate_questions(n, seed=None):
         for _ in range(10):
             q = g.generate(rng)
             if not has_duplicate_options(q):
+                q = postprocess_unique(q, rng)
                 questions.append(q)
                 break
         else:

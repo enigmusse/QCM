@@ -1,0 +1,214 @@
+[
+  {
+    "type": "T03_fraction",
+    "enonce": "En quelle expression peut se simplifier : -1/(x+3) − 1/(x−3) + 12/(x^2−9) ?",
+    "options": [
+      "2*(6 - x)/(x^2 - 9)",
+      "4*(6 - x)/(x^2 - 9)",
+      "(6 - x)/(x^2 - 9)",
+      "Autre chose"
+    ],
+    "reponse": "2*(6 - x)/(x^2 - 9)",
+    "params": {
+      "p": 3,
+      "A": -1,
+      "B": -1,
+      "C": 12
+    },
+    "numero": 1
+  },
+  {
+    "type": "T05_inegalite",
+    "enonce": "Soient x et y deux réels non nuls. Si x ≤ 2y alors :",
+    "options": [
+      "x² ≤ 2xy",
+      "2x ≤ 4y",
+      "x² < 4y²",
+      "2x ≤ x + 2y"
+    ],
+    "reponse": [
+      "2x ≤ 4y",
+      "2x ≤ x + 2y"
+    ],
+    "params": {
+      "cond": "x ≤ 2y"
+    },
+    "numero": 2
+  },
+  {
+    "type": "T08_cercle",
+    "enonce": "Dans un repère orthonormé, on considère A(4,4) et B(-1,2). Une équation du cercle de diamètre [AB] est :",
+    "options": [
+      "x^2 - 5x + y^2 - 6y + 8 = 0",
+      "x^2 - 3x + y^2 - 8y + 11 = 0",
+      "x^2 - 3x + y^2 - 6y + 4 = 0",
+      "Autre chose"
+    ],
+    "reponse": "x^2 - 3x + y^2 - 6y + 4 = 0",
+    "params": {
+      "xA": 4,
+      "yA": 4,
+      "xB": -1,
+      "yB": 2
+    },
+    "numero": 3
+  },
+  {
+    "type": "T06_droite",
+    "enonce": "Dans un repère orthonormé, on considère A(3,-4) et B(0,2). Une équation de la droite (AB) est :",
+    "options": [
+      "y = -x + 2",
+      "y = 2x + 2",
+      "y = -2x + 2",
+      "Autre chose"
+    ],
+    "reponse": "y = -2x + 2",
+    "params": {
+      "xA": 3,
+      "yA": -4,
+      "xB": 0,
+      "yB": 2
+    },
+    "numero": 4
+  },
+  {
+    "type": "T04_systeme",
+    "enonce": "On pose (x0, y0) la solution du système : -3x + 2y = 17 ; 3x + 2y = 23. Que vaut 3x0 − 4y0 ?",
+    "options": [
+      "-37",
+      "-38",
+      "-35",
+      "Autre chose"
+    ],
+    "reponse": "-37",
+    "params": {
+      "a1": -3,
+      "b1": 2,
+      "a2": 3,
+      "b2": 2,
+      "c1": 17,
+      "c2": 23,
+      "x0": 1,
+      "y0": 10
+    },
+    "numero": 5
+  },
+  {
+    "type": "T10_limite",
+    "enonce": "Déterminer la limite suivante (vous pouvez utiliser des DL) : lim_{x→0} ln(1+x)/x",
+    "options": [
+      "1",
+      "+∞",
+      "0",
+      "Autre chose"
+    ],
+    "reponse": "1",
+    "params": {
+      "f": "ln(1+x)/x"
+    },
+    "numero": 6
+  },
+  {
+    "type": "T07_mediatrice",
+    "enonce": "Dans un repère orthonormé, on considère A(2,4) et B(1,1). Une équation de la médiatrice de [AB] est :",
+    "options": [
+      "y = -1/3x + 4",
+      "y = -1/3x + 3",
+      "y = 3x + 3",
+      "Autre chose"
+    ],
+    "reponse": "y = -1/3x + 3",
+    "params": {
+      "xA": 2,
+      "yA": 4,
+      "xB": 1,
+      "yB": 1
+    },
+    "numero": 7
+  },
+  {
+    "type": "T09_points_cercle",
+    "enonce": "Dans un repère orthonormé, on considère A(3,1) et B(2,1). Parmi les points suivants, lesquels appartiennent au cercle de diamètre [AB] ?",
+    "options": [
+      "(2, 3)",
+      "(3, 1)",
+      "(2, 1)",
+      "(-6, 2)"
+    ],
+    "reponse": [
+      "(3, 1)",
+      "(2, 1)"
+    ],
+    "params": {
+      "xA": 3,
+      "yA": 1,
+      "xB": 2,
+      "yB": 1,
+      "candidats": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          -6,
+          2
+        ]
+      ]
+    },
+    "numero": 8
+  },
+  {
+    "type": "T02_puissance",
+    "enonce": "En quelle expression peut se simplifier : (3√3)^2 × 3^4 × 12^1 / (5^-1 × (3√2)^2) ?",
+    "options": [
+      "2 * 3^6 * 5",
+      "2 * 3^6 * 5 * 2",
+      "2 * 3^6 * 5 * 5",
+      "Autre chose"
+    ],
+    "reponse": "2 * 3^6 * 5",
+    "params": {
+      "k1": 3,
+      "p1": 3,
+      "e1": 2,
+      "p2": 3,
+      "e2": 4,
+      "p3": 12,
+      "e3": 1,
+      "p4": 5,
+      "e4": -1,
+      "k2": 3,
+      "p5": 2,
+      "e5": 2
+    },
+    "numero": 9
+  },
+  {
+    "type": "T01_polynome",
+    "enonce": "On considère P(X) = -2X^3 - 2X^2 + 34X - 30. Déterminer les racines x1≤x2≤x3. Que vaut x1 + 2x2 − x3 ?",
+    "options": [
+      "-7",
+      "-6",
+      "-3",
+      "Autre chose"
+    ],
+    "reponse": "-6",
+    "params": {
+      "a": -2,
+      "roots": [
+        -5,
+        1,
+        3
+      ]
+    },
+    "numero": 10
+  }
+]

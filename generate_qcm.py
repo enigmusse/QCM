@@ -4,6 +4,7 @@ import argparse
 import json
 import random
 from pathlib import Path
+from generators.utils import postprocess_unique
 
 from generators import (
     t01_polynome, t02_puissance, t03_fraction, t04_systeme, t05_inegalite,
@@ -18,7 +19,7 @@ GENERATORS = [
 
 def generate_qcm(seed: int | None = None, shuffle: bool = True) -> list[dict]:
     rng = random.Random(seed)
-    questions = [g.generate(rng) for g in GENERATORS]
+    questions = [postprocess_unique(g.generate(rng), rng) for g in GENERATORS]
     if shuffle:
         rng.shuffle(questions)
     for i, q in enumerate(questions, 1):

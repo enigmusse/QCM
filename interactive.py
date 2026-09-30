@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+from generators.utils import postprocess_unique
+
+
 """QCM interactif : répondre aux questions et avoir la correction."""
 import random
 import sys
