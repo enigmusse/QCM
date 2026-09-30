@@ -2,27 +2,28 @@
 import re
 
 
+# ============================================================
+#  Rendu LaTeX
+# ============================================================
+
 def to_latex(s):
     """Convertit une expression plain-text en LaTeX."""
     if not isinstance(s, str):
         s = str(s)
 
-    # Exposants : x^2 → x^{2}, e^-x → e^{-x}
-    s = re.sub(r"\^([A-Za-z0-9]+)", r"^{\1}", s)
+    # Exposants : x^2 → x^{2}
     s = re.sub(r"\^([+\-]?[A-Za-z0-9]+)", r"^{\1}", s)
 
-    # Indices : x1 → x_{1}, x_1 → x_{1}
+    # Exposants unicode
+    for sup, num in [("²", "2"), ("³", "3"), ("⁴", "4"), ("⁵", "5")]:
+        s = s.replace(sup, f"^{{{num}}}")
+
+    # Indices : x1 → x_{1}
     s = re.sub(r"\b([a-zA-Z])_?(\d)\b", r"\1_{\2}", s)
 
     # Racines : √x → \sqrt{x}, √(x+1) → \sqrt{x+1}
     s = re.sub(r"√\s*\(([^)]+)\)", r"\\sqrt{\1}", s)
     s = re.sub(r"√\s*([A-Za-z0-9]+)", r"\\sqrt{\1}", s)
-
-    # Exposants unicode
-    for sup, num in [("²", "^2"), ("³", "^3"), ("⁴", "^4"), ("⁵", "^5")]:
-        s = s.replace(sup, num)
-    # Repasse les exposants unicode convertis
-    s = re.sub(r"\^([+\-]?[A-Za-z0-9]+)", r"^{\1}", s)
 
     # Symboles
     s = s.replace("×", r"\times ")
@@ -32,8 +33,8 @@ def to_latex(s):
     s = s.replace("≠", r"\neq ")
     s = s.replace("∞", r"\infty ")
     s = s.replace("π", r"\pi ")
-    s = s.replace("Σ", r"\sum ")
     s = s.replace("∑", r"\sum ")
+    s = s.replace("Σ", r"\sum ")
     s = s.replace("∫", r"\int ")
     s = s.replace("→", r"\to ")
     s = s.replace("−", "-")
@@ -49,8 +50,7 @@ def to_latex(s):
 
 
 def smart_render(text):
-    """Rend un texte mixte (français + maths) prêt pour st.markdown.
-    Entoure les segments mathématiques de $...$."""
+    """Entoure les segments mathématiques de $...$ pour st.markdown."""
     if not isinstance(text, str):
         text = str(text)
 
@@ -67,12 +67,14 @@ def smart_render(text):
     )
 
     def _wrap(m):
-        s = m.group(0)
-        return f"${to_latex(s)}$"
+        return f"${to_latex(m.group(0))}$"
 
     return pattern.sub(_wrap, text)
 
 
+# ============================================================
+#  Formatage de formules (plain text)
+# ============================================================
 
 def fmt_signed(value, var="x"):
     """Formate '+ ax' ou '- ax' proprement, gère 0, 1, -1."""
@@ -90,7 +92,6 @@ def fmt_signed(value, var="x"):
 def fmt_line(m, p):
     """Formate 'y = mx + p' proprement. Gère le cas m=0, p=0."""
     parts = ["y ="]
-
     if m == 1:
         parts.append("x")
     elif m == -1:
@@ -106,7 +107,6 @@ def fmt_line(m, p):
 
     if len(parts) == 1:
         parts.append("0")
-
     return " ".join(parts)
 
 
@@ -114,34 +114,16 @@ def fmt_poly(coeffs):
     """coeffs = [a,b,c,d] pour aX^3 + bX^2 + cX + d."""
     a, b, c, d = coeffs
     terms = []
-
     if a != 0:
-        if a == 1:
-            terms.append("X^3")
-        elif a == -1:
-            terms.append("-X^3")
-        else:
-            terms.append(f"{a}X^3")
-
+        terms.append("X^3" if a == 1 else "-X^3" if a == -1 else f"{a}X^3")
     if b != 0:
-        if b == 1:
-            terms.append("+ X^2")
-        elif b == -1:
-            terms.append("- X^2")
-        else:
-            terms.append(f"+ {b}X^2" if b > 0 else f"- {abs(b)}X^2")
-
+        terms.append("+ X^2" if b == 1 else "- X^2" if b == -1
+                     else (f"+ {b}X^2" if b > 0 else f"- {abs(b)}X^2"))
     if c != 0:
-        if c == 1:
-            terms.append("+ X")
-        elif c == -1:
-            terms.append("- X")
-        else:
-            terms.append(f"+ {c}X" if c > 0 else f"- {abs(c)}X")
-
+        terms.append("+ X" if c == 1 else "- X" if c == -1
+                     else (f"+ {c}X" if c > 0 else f"- {abs(c)}X"))
     if d != 0:
         terms.append(f"+ {d}" if d > 0 else f"- {abs(d)}")
-
     return " ".join(terms) if terms else "0"
 
 
@@ -154,7 +136,9 @@ def fmt_expr(expr):
     return s
 
 
-# ---------- Nouveaux helpers pour les générateurs QCM 0 ----------
+# ============================================================
+#  Nouveaux helpers (QCM 0)
+# ============================================================
 
 def fmt_term(coef, var="", first=False):
     """Formate un terme '+ ax' ou '- ax' proprement. Gère 0, ±1."""
@@ -165,10 +149,7 @@ def fmt_term(coef, var="", first=False):
     else:
         sign = "+ " if coef > 0 else "- "
     abs_c = abs(coef)
-    if abs_c == 1 and var:
-        coef_str = ""
-    else:
-        coef_str = str(abs_c)
+    coef_str = "" if (abs_c == 1 and var) else str(abs_c)
     return f"{sign}{coef_str}{var}".strip()
 
 
@@ -200,7 +181,10 @@ def fmt_lin(a, b, var="x"):
     return " ".join(parts) if parts else "0"
 
 
-# Types à réponses multiples (non concernés par le post-traitement)
+# ============================================================
+#  Post-traitement "Autre chose"
+# ============================================================
+
 MULTI_TYPES = {
     "T05_inegalite",
     "T09_points_cercle",
@@ -248,5 +232,5 @@ def postprocess_unique(q, rng, p_autre=0.20):
     q = dict(q)
     q["options"] = options_new
     q["reponse"] = rep_new
-    q["reponse_math"] = rep_s    # ← vrai contenu mathématique, toujours préservé
+    q["reponse_math"] = rep_s
     return q
