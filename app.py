@@ -89,7 +89,7 @@ with st.sidebar:
 
     random_mode = st.checkbox(
         "🎲 Mode aléatoire",
-        value=False,
+        value=True,
         help="Si coché : questions différentes à chaque génération. "
              "Si décoché : mêmes questions (reproductible).",
     )

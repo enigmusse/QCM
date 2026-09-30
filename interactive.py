@@ -161,16 +161,15 @@ def main():
     p.add_argument("--type", dest="type_qcm", default="rannou")
     p.add_argument("--numero", type=int, default=1)
     p.add_argument("-n", "--number", type=int, default=10)
-    p.add_argument("--random", action="store_true",
-                   help="Mode aléatoire : seed tirée au hasard")
+    p.add_argument("--no-random", action="store_true",help="Mode reproductible : seed fixe (0 par défaut). ""Sans ce flag, les questions sont aléatoires.")
     p.add_argument("--seed", type=int, default=0,
-                   help="Seed fixe (0 par défaut). Ignoré si --random.")
+                   help="Seed fixe utilisée avec --no-random.")
     p.add_argument("--shuffle", action="store_true",
                    help="Mélanger l'ordre (désactivé par défaut)")
     p.add_argument("--final", action="store_true", help="Correction à la fin")
     args = p.parse_args()
 
-    seed = None if args.random else args.seed
+    seed = args.seed if args.no_random else None
     generators = get_generators(args.matiere, args.type_qcm, args.numero)
     questions = _generate_all(generators, args.number, seed)
     if args.shuffle:

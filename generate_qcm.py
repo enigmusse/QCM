@@ -86,12 +86,11 @@ def main():
     p.add_argument("--type", dest="type_qcm", default=None)
     p.add_argument("--numero", type=int, default=None)
     p.add_argument("-n", type=int, default=None)
-    p.add_argument("--random", action="store_true",
-                   help="Mode aléatoire : seed tirée au hasard (questions différentes à chaque run)")
+    p.add_argument("--no-random", action="store_true",
+                   help="Mode reproductible : seed fixe (0 par défaut). "
+                        "Sans ce flag, les questions sont aléatoires.")
     p.add_argument("--seed", type=int, default=0,
-                   help="Seed fixe (0 par défaut). Ignoré si --random.")
-    p.add_argument("--shuffle", action="store_true",
-                   help="Mélanger l'ordre des questions (désactivé par défaut)")
+                   help="Seed fixe utilisée avec --no-random.")
     p.add_argument("-o", "--output", default=None)
     p.add_argument("--menu", action="store_true")
     args = p.parse_args()
@@ -104,8 +103,8 @@ def main():
         numero = args.numero if args.numero is not None else 1
 
     # Choix de la seed
-    seed = None if args.random else args.seed
-    mode_label = "aléatoire (seed random)" if args.random else f"reproductible (seed={seed})"
+    seed = args.seed if args.no_random else None
+    mode_label = "reproductible (seed={})".format(seed) if args.no_random else "aléatoire (seed random)"
 
     cfg = get_config(matiere, type_qcm, numero)
     generators = get_generators(matiere, type_qcm, numero)
