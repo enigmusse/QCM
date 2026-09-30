@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "source": "5 PDF de QCM de mathématiques",
+    "exams": ["51-1-40", "51-1-18", "50-1-22", "49-1-48", "48-1-52"],
+    "types": 10
+  },
+  "questions": [
+    {
+      "exam": "51-1-40", "num": 1, "type": "T01_polynome",
+      "enonce": "On considère P(X) = 2X^3 + 6X^2 − 18X + 10. Racines x1≤x2≤x3. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 2, "roots": [-5, 1, 1] },
+      "reponse": -4
+    },
+    {
+      "exam": "51-1-40", "num": 3, "type": "T03_fraction",
+      "enonce": "Simplifier 3/(x+2) + 4/(x-2) + 12/(x^2-4)",
+      "params": { "p": 2, "q": 2, "A": 3, "B": 4, "C": 12 },
+      "reponse": "7/(x-2)"
+    },
+    {
+      "exam": "51-1-40", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 3x+5y=5 ; x+2y=4. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 3, "b1": 5, "a2": 1, "b2": 2, "c1": 5, "c2": 4 },
+      "reponse": -58
+    },
+    {
+      "exam": "51-1-40", "num": 5, "type": "T05_inegalite",
+      "enonce": "Si 0 < x ≤ 2y alors :",
+      "params": { "cond": "0 < x <= 2y" },
+      "reponse": ["sqrt(x) <= sqrt(2y)", "0 <= 4y^2 - x^2"]
+    },
+    {
+      "exam": "51-1-40", "num": 6, "type": "T06_droite",
+      "enonce": "A(0,1), B(-1,3). Équation de (AB) ?",
+      "params": { "xA": 0, "yA": 1, "xB": -1, "yB": 3 },
+      "reponse": "y = 1 - 2x"
+    },
+    {
+      "exam": "51-1-40", "num": 7, "type": "T07_mediatrice",
+      "enonce": "A(0,1), B(-1,3). Médiatrice de [AB] ?",
+      "params": { "xA": 0, "yA": 1, "xB": -1, "yB": 3 },
+      "reponse": "y = x/2 + 9/4"
+    },
+    {
+      "exam": "51-1-40", "num": 8, "type": "T08_cercle",
+      "enonce": "A(0,1), B(-1,3). Cercle de diamètre [AB] ?",
+      "params": { "xA": 0, "yA": 1, "xB": -1, "yB": 3 },
+      "reponse": "x^2 + x + y^2 - 4y + 3 = 0"
+    },
+    {
+      "exam": "51-1-40", "num": 9, "type": "T09_points_cercle",
+      "enonce": "Points sur le cercle de diamètre [AB] (A(0,1), B(-1,3)) ?",
+      "params": { "xA": 0, "yA": 1, "xB": -1, "yB": 3, "candidats": [[-1.5,1.5],[1,2],[1.5,1.5],[0,3]] },
+      "reponse": [[-1.5,1.5],[0,3]]
+    },
+    {
+      "exam": "51-1-18", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = 3X^3 − 21X + 18. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 3, "roots": [-3, 1, 2] },
+      "reponse": -3
+    },
+    {
+      "exam": "51-1-18", "num": 3, "type": "T03_fraction",
+      "enonce": "Simplifier 1/(x+4) + 2/(x-4) + 8/(x^2-16)",
+      "params": { "p": 4, "q": 4, "A": 1, "B": 2, "C": 8 },
+      "reponse": "3/(x-4)"
+    },
+    {
+      "exam": "51-1-18", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 2x+3y=5 ; 2x+y=8. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 2, "b1": 3, "a2": 2, "b2": 1, "c1": 5, "c2": 8 },
+      "reponse": "81/4"
+    },
+    {
+      "exam": "51-1-18", "num": 6, "type": "T06_droite",
+      "enonce": "A(4,1), B(0,2). Équation de (AB) ?",
+      "params": { "xA": 4, "yA": 1, "xB": 0, "yB": 2 },
+      "reponse": "y = 2 - x/4"
+    },
+    {
+      "exam": "51-1-18", "num": 7, "type": "T07_mediatrice",
+      "enonce": "A(4,1), B(0,2). Médiatrice de [AB] ?",
+      "params": { "xA": 4, "yA": 1, "xB": 0, "yB": 2 },
+      "reponse": "y = 4x - 13/2"
+    },
+    {
+      "exam": "51-1-18", "num": 8, "type": "T08_cercle",
+      "enonce": "A(4,1), B(0,2). Cercle de diamètre [AB] ?",
+      "params": { "xA": 4, "yA": 1, "xB": 0, "yB": 2 },
+      "reponse": "x^2 - 4x + y^2 - 3y + 2 = 0"
+    },
+    {
+      "exam": "51-1-18", "num": 9, "type": "T09_points_cercle",
+      "enonce": "A(4,1), B(0,2). Points sur le cercle ?",
+      "params": { "xA": 4, "yA": 1, "xB": 0, "yB": 2, "candidats": [[5,1],[1.5,-0.5],[4,2],[3.5,2.5]] },
+      "reponse": [[1.5,-0.5],[4,2]]
+    },
+    {
+      "exam": "50-1-22", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = 4X^3 − 8X^2 − 20X + 24. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 4, "roots": [-2, 1, 3] },
+      "reponse": -3
+    },
+    {
+      "exam": "50-1-22", "num": 2, "type": "T02_puissance",
+      "enonce": "Simplifier (2√5)^2 × 5^4 × 20^2 / (5^-3 × (2√20)^2)",
+      "params": { "k1": 2, "p1": 5, "e1": 2, "p2": 5, "e2": 4, "p3": 20, "e3": 2, "p4": 5, "e4": -3, "k2": 2, "p5": 20, "e5": 2 },
+      "reponse": "2^2 * 5^9"
+    },
+    {
+      "exam": "50-1-22", "num": 3, "type": "T03_fraction",
+      "enonce": "Simplifier -1/(x+3) + 4/(x-3) - 6/(x^2-9)",
+      "params": { "p": 3, "q": 3, "A": -1, "B": 4, "C": -6 },
+      "reponse": "3/(x-3)"
+    },
+    {
+      "exam": "50-1-22", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 4x+6y=4 ; 2x+y=-2. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 4, "b1": 6, "a2": 2, "b2": 1, "c1": 4, "c2": -2 },
+      "reponse": -14
+    },
+    {
+      "exam": "50-1-22", "num": 5, "type": "T05_inegalite",
+      "enonce": "Si x > 1 et y < 1 alors :",
+      "params": { "cond": "x > 1 and y < 1" },
+      "reponse": ["2x - y > 1", "x^2 + y^2 > 1"]
+    },
+    {
+      "exam": "50-1-22", "num": 6, "type": "T06_droite",
+      "enonce": "A(-2,1), B(2,3). Équation de (AB) ?",
+      "params": { "xA": -2, "yA": 1, "xB": 2, "yB": 3 },
+      "reponse": "y = x/2 + 2"
+    },
+    {
+      "exam": "50-1-22", "num": 7, "type": "T07_mediatrice",
+      "enonce": "A(-2,1), B(2,3). Médiatrice de [AB] ?",
+      "params": { "xA": -2, "yA": 1, "xB": 2, "yB": 3 },
+      "reponse": "y = 2 - 2x"
+    },
+    {
+      "exam": "50-1-22", "num": 8, "type": "T08_cercle",
+      "enonce": "A(-2,1), B(2,3). Cercle de diamètre [AB] ?",
+      "params": { "xA": -2, "yA": 1, "xB": 2, "yB": 3 },
+      "reponse": "x^2 + y^2 - 4y - 1 = 0"
+    },
+    {
+      "exam": "50-1-22", "num": 9, "type": "T09_points_cercle",
+      "enonce": "A(-2,1), B(2,3). Points sur le cercle ?",
+      "params": { "xA": -2, "yA": 1, "xB": 2, "yB": 3, "candidats": [[-1,2],[-2,3],[-1,4],[2,-1]] },
+      "reponse": [[-2,3],[-1,4]]
+    },
+    {
+      "exam": "50-1-22", "num": 10, "type": "T10_limite",
+      "enonce": "lim_{x→0} sin(x)/x^2 * ln(1+x)",
+      "params": { "f": "sin(x)/x^2 * ln(1+x)" },
+      "reponse": 1
+    },
+    {
+      "exam": "49-1-48", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = 3X^3 − 21X^2 − 3X + 21. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 3, "roots": [-1, 1, 7] },
+      "reponse": -6
+    },
+    {
+      "exam": "49-1-48", "num": 3, "type": "T03_fraction",
+      "enonce": "Simplifier 1/(x+2) - 3/(x-2) + 4/(x^2-4)",
+      "params": { "p": 2, "q": 2, "A": 1, "B": -3, "C": 4 },
+      "reponse": "-2/(x-2)"
+    },
+    {
+      "exam": "49-1-48", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 2x+2y=-3 ; x-y=1. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 2, "b1": 2, "a2": 1, "b2": -1, "c1": -3, "c2": 1 },
+      "reponse": "17/4"
+    },
+    {
+      "exam": "49-1-48", "num": 6, "type": "T06_droite",
+      "enonce": "A(3,-1), B(-1,0). Équation de (AB) ?",
+      "params": { "xA": 3, "yA": -1, "xB": -1, "yB": 0 },
+      "reponse": "y = -x/4 - 1/4"
+    },
+    {
+      "exam": "49-1-48", "num": 7, "type": "T07_mediatrice",
+      "enonce": "A(3,-1), B(-1,0). Médiatrice de [AB] ?",
+      "params": { "xA": 3, "yA": -1, "xB": -1, "yB": 0 },
+      "reponse": "y = 4x - 9"
+    },
+    {
+      "exam": "49-1-48", "num": 8, "type": "T08_cercle",
+      "enonce": "A(3,-1), B(-1,0). Cercle de diamètre [AB] ?",
+      "params": { "xA": 3, "yA": -1, "xB": -1, "yB": 0 },
+      "reponse": "x^2 - 2x + y^2 + y - 3 = 0"
+    },
+    {
+      "exam": "49-1-48", "num": 9, "type": "T09_points_cercle",
+      "enonce": "A(3,-1), B(-1,0). Points sur le cercle ?",
+      "params": { "xA": 3, "yA": -1, "xB": -1, "yB": 0, "candidats": [[4,-1],[0.5,-2.5],[3,0],[2.5,0.5]] },
+      "reponse": [[0.5,-2.5],[3,0]]
+    },
+    {
+      "exam": "48-1-52", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = −4X^3 + 8X^2 + 20X − 24. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": -4, "roots": [-2, 1, 3] },
+      "reponse": -3
+    },
+    {
+      "exam": "48-1-52", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 2x+3y=5 ; 2x+y=8. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 2, "b1": 3, "a2": 2, "b2": 1, "c1": 5, "c2": 8 },
+      "reponse": "81/4"
+    },
+    {
+      "exam": "48-1-52", "num": 6, "type": "T06_droite",
+      "enonce": "A(3,4), B(-1,2). Équation de (AB) ?",
+      "params": { "xA": 3, "yA": 4, "xB": -1, "yB": 2 },
+      "reponse": "y = x/2 + 5/2"
+    },
+    {
+      "exam": "48-1-52", "num": 7, "type": "T07_mediatrice",
+      "enonce": "A(3,4), B(-1,2). Médiatrice de [AB] ?",
+      "params": { "xA": 3, "yA": 4, "xB": -1, "yB": 2 },
+      "reponse": "y = 5 - 2x"
+    },
+    {
+      "exam": "48-1-52", "num": 8, "type": "T08_cercle",
+      "enonce": "A(3,4), B(-1,2). Cercle de diamètre [AB] ?",
+      "params": { "xA": 3, "yA": 4, "xB": -1, "yB": 2 },
+      "reponse": "x^2 - 2x + y^2 - 6y + 5 = 0"
+    },
+    {
+      "exam": "48-1-52", "num": 9, "type": "T09_points_cercle",
+      "enonce": "A(3,4), B(-1,2). Points sur le cercle ?",
+      "params": { "xA": 3, "yA": 4, "xB": -1, "yB": 2, "candidats": [[3,2],[4,1],[2,1],[1,4]] },
+      "reponse": [[2,1],[3,2]]
+    },
+    {
+      "exam": "48-1-52", "num": 10, "type": "T10_limite",
+      "enonce": "lim_{x→0+} (e^{-x/2} - cos(√x))/x^2",
+      "params": { "f": "(exp(-x/2) - cos(sqrt(x)))/x^2" },
+      "reponse": "1/12"
+    },
+    {
+      "exam": "37-1-36", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = 3X^3 + 30X^2 + 51X + 24. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 3, "roots": [-8, -1, -1] },
+      "reponse": -9
+    },
+    {
+      "exam": "37-1-36", "num": 3, "type": "T03_fraction",
+      "enonce": "Simplifier 3/(x+3) + 2/(x-3) - 12/(x^2-9)",
+      "params": { "p": 3, "q": 3, "A": 3, "B": 2, "C": -12 },
+      "reponse": "5/(x+3)"
+    },
+    {
+      "exam": "37-1-36", "num": 4, "type": "T04_systeme",
+      "enonce": "Système -3x + 2y = 1 ; x - y = -9. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": -3, "b1": 2, "a2": 1, "b2": -1, "c1": 1, "c2": -9 },
+      "reponse": -53
+    },
+    {
+      "exam": "37-1-36", "num": 6, "type": "T06_droite",
+      "enonce": "A(2,-3), B(-4,-1). Équation de (AB) ?",
+      "params": { "xA": 2, "yA": -3, "xB": -4, "yB": -1 },
+      "reponse": "y = -x/3 - 7/3"
+    },
+    {
+      "exam": "37-1-36", "num": 10, "type": "T10_limite",
+      "enonce": "lim_{x→0} (e^{x^2} - cos(x))/x^2",
+      "params": { "f": "(exp(x^2) - cos(x))/x^2" },
+      "reponse": "3/2"
+    },
+    {
+      "exam": "47-1-28", "num": 1, "type": "T01_polynome",
+      "enonce": "P(X) = 2X^3 − 20X^2 + 58X − 40. Que vaut x1 + 2x2 − x3 ?",
+      "params": { "a": 2, "roots": [1, 4, 5] },
+      "reponse": 4
+    },
+    {
+      "exam": "47-1-28", "num": 4, "type": "T04_systeme",
+      "enonce": "Système 4x + y = 2 ; 5x + 2y = 3. Que vaut 3x0 − 4y0 ?",
+      "params": { "a1": 4, "b1": 1, "a2": 5, "b2": 2, "c1": 2, "c2": 3 },
+      "reponse": "-5/3"
+    },
+    {
+      "exam": "47-1-28", "num": 6, "type": "T06_droite",
+      "enonce": "A(1,2), B(4,1). Équation de (AB) ?",
+      "params": { "xA": 1, "yA": 2, "xB": 4, "yB": 1 },
+      "reponse": "y = 7/3 - x/3"
+    }
+  ]
+}
