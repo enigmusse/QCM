@@ -96,7 +96,14 @@ def correct(q, user_letters):
     return is_ok, sorted(correct_set), rep_str
 
 
-def run(questions, immediate=True):
+def _print_explanation(q, prefix="   "):
+    """Affiche l'explication d'une question si elle existe."""
+    expl = q.get("explanation", "")
+    if expl:
+        print(f"{prefix}💡 {expl}")
+
+
+def run(questions, immediate=True, show_expl=True):
     bar("QCM interactif — tapez 'q' pour quitter à tout moment")
     print(f"{len(questions)} questions, correction {'immédiate' if immediate else 'à la fin'}")
 
@@ -117,6 +124,8 @@ def run(questions, immediate=True):
             else:
                 print(f"❌ Incorrect. Votre réponse : {' '.join(user) or '—'}")
                 print(f"   Bonne réponse : {rep_str}")
+            if show_expl:
+                _print_explanation(q)
 
     bar("RÉSULTAT")
     print(f"Score : {score}/{len(questions)}  ({100*score/len(questions):.0f}%)")
@@ -128,7 +137,10 @@ def run(questions, immediate=True):
             lettres = "ABCDEFGH"
             rep_str = ", ".join(f"{l} ({q['options'][lettres.index(l)]})" for l in cl)
             print(f"{status} Q{i} [{q['type']}] — Votre réponse : {' '.join(user) or '—'}")
-            print(f"     Bonne réponse : {rep_str}\n")
+            print(f"     Bonne réponse : {rep_str}")
+            if show_expl:
+                _print_explanation(q)
+            print()
 
     print("Détail par type :")
     by_type = {}
@@ -143,6 +155,8 @@ def run(questions, immediate=True):
 
 def main():
     p = argparse.ArgumentParser(description="QCM interactif")
+    p.add_argument("--no-expl", action="store_true",
+                   help="Ne pas afficher les explications")
     p.add_argument("--matiere", default="maths")
     p.add_argument("--type", dest="type_qcm", default="rannou")
     p.add_argument("--numero", type=int, default=1)
@@ -162,7 +176,7 @@ def main():
     if args.shuffle:
         random.Random(seed).shuffle(questions)
 
-    run(questions, immediate=not args.final)
+    run(questions, immediate=not args.final, show_expl=not args.no_expl)
 
 
 if __name__ == "__main__":

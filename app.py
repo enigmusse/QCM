@@ -54,6 +54,15 @@ def correct_answer_display(q):
     return rep_str
 
 
+def show_explanation(q, expanded=True):
+    """Affiche l'explication d'une question (st.info + expander)."""
+    expl = q.get("explanation", "")
+    if not expl:
+        return
+    with st.expander("💡 Voir l'explication", expanded=expanded):
+        st.markdown(smart_render(expl))
+
+
 # ---------- Barre latérale ----------
 
 with st.sidebar:
@@ -71,6 +80,12 @@ with st.sidebar:
     st.subheader("⚙️ Paramètres")
     n_questions = st.slider("Nombre de questions", 1, 50, 10)
     mode = st.radio("Mode de correction", ["Immédiate", "À la fin"])
+
+    show_expl = st.checkbox(
+        "💡 Afficher les explications",
+        value=True,
+        help="Décocher pour masquer les explications pédagogiques.",
+    )
 
     random_mode = st.checkbox(
         "🎲 Mode aléatoire",
@@ -114,7 +129,8 @@ def render_question(q, idx):
     if multi:
         st.caption("Plusieurs réponses possibles.")
 
-    options_labels = [f"{LETTRES[i]}. {smart_render(str(opt))}" for i, opt in enumerate(q["options"])]
+    options_labels = [f"{LETTRES[i]}. {smart_render(str(opt))}"
+                      for i, opt in enumerate(q["options"])]
     previous = st.session_state.answers.get(idx, [])
 
     if multi:
@@ -154,6 +170,9 @@ def render_question(q, idx):
                     f"❌ Incorrect. Votre réponse : {', '.join(letters) or '—'}\n\n"
                     f"Bonne réponse : {correct_answer_display(q)}"
                 )
+
+            if show_expl:
+                show_explanation(q, expanded=True)
     st.divider()
 
 
@@ -213,6 +232,12 @@ def show_results():
                     marker += " (votre choix)"
                 st.markdown(f"- **{lettre}.** {smart_render(str(opt))}{marker}")
             st.info(f"Bonne réponse : {correct_answer_display(q)}")
+
+            # Explication pédagogique
+            if show_expl:
+                expl = q.get("explanation", "")
+                if expl:
+                    st.success(f"💡 {smart_render(expl)}")
 
     if st.button("🔄 Recommencer", use_container_width=True):
         st.session_state.clear()
